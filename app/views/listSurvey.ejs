@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Update Survey</title>
+
+</head>
+<body>
+<form method = "post" action="/edit_survey">
+	
+	<table align="center" >
+		<tr>
+            <td>
+                <div>
+                    <label>Survey ID:</label>
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <label>Game Genre:</label>
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <label>Days played per Year:</label>
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <label>Age:</label>
+                </div>
+
+            </td>
+        </tr>
+	
+
+	<% surveys.forEach(function(survey){ %>
+	
+		<tr>
+            <td>
+                <div>
+                
+                <input type="text" name="surveyId" value="<%= survey.surveyId %>"/>
+
+                </div>
+
+            </td>
+            <td>
+                <div>
+                
+                <input type="text" name="gameGenre" value="<%= survey.gameGenre %>"/>
+
+                </div>
+
+            </td>
+            <td>
+                <div>
+                
+                <input type="text" name="daysPerYear" value="<%= survey.daysPerYear %>"/>
+
+                </div>
+
+            </td>
+            <td>
+                <div>
+                
+                <input type="text" name="age" value="<%= survey.age %>"/>
+
+                </div>
+
+            </td>
+            <td>
+				<div>
+                    <input type="submit" formaction="/survey/<%= survey.surveyId %>?_method=PUT" value="Update Survey" style="width: 200px"/>
+				</div>
+
+            </td>
+        </tr>
+    
+	
+
+	<% })%>
+	
+	</table>
+    <a href="/">Back to Main Page</a>
+
+</form>
+
+</body>
+
+</html>
